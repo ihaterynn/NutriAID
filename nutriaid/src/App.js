@@ -7,6 +7,7 @@ import { WalletModalProvider } from '@solana/wallet-adapter-react-ui';
 import { clusterApiUrl } from '@solana/web3.js';
 import Homepage from './pages/homepage';
 import AnalysisPage from './pages/analysisPage';
+import ProfilePage from './pages/profilePage';
 // import ErrorBoundary from './ErrorBoundary'; // Comment this out if it's missing
 
 function App() {
@@ -23,8 +24,10 @@ function App() {
             <Routes>
               <Route path="/" element={<Homepage />} />
               <Route path="/analysis" element={<AnalysisPage />} />
+              <Route path="/profile" element={<ProfilePage />} />
             </Routes>
           </Router>
+
           </div>
         </WalletModalProvider>
       </WalletProvider>
