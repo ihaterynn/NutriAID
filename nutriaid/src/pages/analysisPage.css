@@ -88,9 +88,9 @@
 /* Output Boxes */
 .output-box {
     background-color: #000000;
-    border: 2px solid;
+    border: 4px solid; /* Thicker border */
     padding: 15px;
-    border-radius: 15px;
+    border-radius: 25px; /* Rounder corners */
     height: 120px;
     box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.1);
     overflow: hidden;
@@ -98,15 +98,15 @@
 }
 
 .consumption-recommendation {
-    border-color: #00ff00; 
+    border-color: #00ff00; /* Green border */
 }
 
 .concerns {
-    border-color: #00aaff; 
+    border-color: #00aaff; /* Blue border */
 }
 
 .harmful-ingredients {
-    border-color: #ff00ff; 
+    border-color: #ff00ff; /* Pink border */
 }
 
 h3 {
@@ -126,6 +126,6 @@ h3 {
     padding: 10px;
     margin: 5px 0;
     background-color: #fff3e0;
-    border-radius: 5px;
+    border-radius: 10px; /* Slightly rounder corners for list items */
     color: #333;
 }
