@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useWallet } from '@solana/wallet-adapter-react';
-import UploadComponent from '../components/UploadComponent'; // Reusable component
-import './AnalysisPage.css'; // Specific styles for AnalysisPage
+import UploadComponent from '../components/uploadComponent'; // Reusable component
+import './analysisPage.css'; // Specific styles for AnalysisPage
 
 function AnalysisPage() {
   const [analysisResult, setAnalysisResult] = useState(null);

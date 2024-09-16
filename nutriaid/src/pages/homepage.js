@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './Homepage.css'; // Specific styles for Homepage
+import './homepage.css'; // Specific styles for Homepage
 
 function Homepage() {
   console.log("Homepage Component Rendering");
