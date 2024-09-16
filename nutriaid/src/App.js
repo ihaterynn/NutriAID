@@ -8,7 +8,7 @@ import { clusterApiUrl } from '@solana/web3.js';
 import Homepage from './pages/homepage';
 import AnalysisPage from './pages/analysisPage';
 import ProfilePage from './pages/profilePage';
-// import ErrorBoundary from './ErrorBoundary'; // Comment this out if it's missing
+import WalletSelectionPage from './pages/walletSelectionPage'; // Proper import
 
 function App() {
   const network = WalletAdapterNetwork.Devnet;
@@ -20,14 +20,14 @@ function App() {
       <WalletProvider wallets={wallets} autoConnect>
         <WalletModalProvider>
           <div className="App">
-          <Router basename="/NutriAID">
-            <Routes>
-              <Route path="/" element={<Homepage />} />
-              <Route path="/analysis" element={<AnalysisPage />} />
-              <Route path="/profile" element={<ProfilePage />} />
-            </Routes>
-          </Router>
-
+            <Router basename="/NutriAID">
+              <Routes>
+                <Route path="/" element={<Homepage />} />
+                <Route path="/analysis" element={<AnalysisPage />} />
+                <Route path="/profile" element={<ProfilePage />} />
+                <Route path="/wallet-selection" element={<WalletSelectionPage />} /> {/* Fixed casing */}
+              </Routes>
+            </Router>
           </div>
         </WalletModalProvider>
       </WalletProvider>

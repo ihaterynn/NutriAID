@@ -1,30 +1,66 @@
-/* src/pages/walletSelectionPage.css */
-.wallet-selection-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+/* Basic styling */
+.wallet-selection-page {
+    font-family: 'Orbitron', sans-serif;
     background-color: #0a0a20;
     color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
 }
 
-.wallet-selection-container h2 {
+#particles-js {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+/* Wallet container */
+.wallet-container {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    width: 500px;
+    padding: 2rem;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+    z-index: 2;
+    text-align: center;
+}
+
+.wallet-container h2 {
     font-size: 2rem;
     margin-bottom: 2rem;
+    background: linear-gradient(45deg, #30dc3e, #71e0e0, #8f70ed, #e440ae);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Wallet options */
+.wallet-options {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
 .wallet-option {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background: rgba(255, 255, 255, 0.1);
-    margin-bottom: 1rem;
-    padding: 1rem;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  margin-bottom: 10px; /* Add margin to create space between options */
+  padding-left: 20px;
 }
+
 
 .wallet-option:hover {
     background: rgba(255, 255, 255, 0.2);
@@ -38,4 +74,5 @@
 .wallet-option span {
     flex-grow: 1;
     text-align: left;
+    padding-left: 15px;
 }
