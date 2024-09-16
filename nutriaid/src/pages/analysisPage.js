@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { useWallet } from '@solana/wallet-adapter-react';
-import UploadComponent from '../components/uploadComponent'; // Reusable component
-import './analysisPage.css'; // Specific styles for AnalysisPage
+import Navbar from './navbar'; 
+import snapPhotoIcon from '../graphics/SnapPhoto Icon.png'; 
+import UploadComponent from '../components/uploadComponent'; 
+import './analysisPage.css'; 
 
 function AnalysisPage() {
   const [analysisResult, setAnalysisResult] = useState(null);
@@ -12,44 +14,65 @@ function AnalysisPage() {
     console.log("Analysis result:", result);
   };
 
-  console.log("Rendering AnalysisPage");
-
+  const handleFileChange = (file) => {
+    console.log("File uploaded:", file);
+    // Additional logic for handling file upload can be added here
+  };
 
   return (
     <div className="analysis-page">
-      <header>
-        <h1>NutriAID: Analyze Food Labels</h1>
-      </header>
+      <Navbar />
+      
+      <div className="analysis-container">
+        {/* Left Section with Snap Photo, Attach File and Analyze Button */}
+        <div className="left-section">
+          <div className="input-container">
+            <h3>SNAP A PHOTO:</h3>
+            <img src={snapPhotoIcon} alt="Snap Photo" className="icon" />
+          </div>
 
-      <main>
-        <UploadComponent onAnalysisComplete={handleAnalysisComplete} />
-        {analysisResult && (
-          <div className="analysis-result">
-            <h2>Analysis Result</h2>
-            <p><strong>Recommendation:</strong> {analysisResult.recommendation}</p>
-            {analysisResult.concerns.length > 0 && (
-              <div className="concerns">
-                <h3>Concerns:</h3>
-                <ul>
-                  {analysisResult.concerns.map((concern, index) => (
-                    <li key={index}>{concern}</li>
-                  ))}
-                </ul>
-              </div>
-            )}
-            {analysisResult.harmfulIngredients.length > 0 && (
-              <div className="harmful-ingredients">
-                <h3>Potentially Harmful/Unhealthy Ingredients:</h3>
-                <ul>
-                  {analysisResult.harmfulIngredients.map((ingredient, index) => (
-                    <li key={index}>{ingredient}</li>
-                  ))}
-                </ul>
-              </div>
+          <div className="input-container">
+            <h3>ATTACH A FILE:</h3>
+            <UploadComponent onFileChange={handleFileChange} />
+          </div>
+
+          <button className="analyze-button">ANALYZE</button>
+        </div>
+
+        {/* Right Section with Analysis Results */}
+        <div className="right-section">
+          <div className="output-box consumption-recommendation">
+            <h3>CONSUMPTION RECOMMENDATION:</h3>
+            <p>{analysisResult ? analysisResult.recommendation : 'Awaiting input...'}</p>
+          </div>
+
+          <div className="output-box concerns">
+            <h3>CONCERNS:</h3>
+            {analysisResult && analysisResult.concerns.length > 0 ? (
+              <ul>
+                {analysisResult.concerns.map((concern, index) => (
+                  <li key={index}>{concern}</li>
+                ))}
+              </ul>
+            ) : (
+              <p>Awaiting input...</p>
             )}
           </div>
-        )}
-      </main>
+
+          <div className="output-box harmful-ingredients">
+            <h3>POTENTIALLY HARMFUL/UNHEALTHY INGREDIENTS:</h3>
+            {analysisResult && analysisResult.harmfulIngredients.length > 0 ? (
+              <ul>
+                {analysisResult.harmfulIngredients.map((ingredient, index) => (
+                  <li key={index}>{ingredient}</li>
+                ))}
+              </ul>
+            ) : (
+              <p>Awaiting input...</p>
+            )}
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

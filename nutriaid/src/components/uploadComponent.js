@@ -1,36 +1,31 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 
-const UploadComponent = () => {
+const UploadComponent = ({ onFileChange }) => {
   const [file, setFile] = useState(null);
+  const fileInputRef = useRef(null);
 
   const handleFileChange = (e) => {
-    setFile(e.target.files[0]);
+    const selectedFile = e.target.files[0];
+    setFile(selectedFile);
+    onFileChange(selectedFile); // Notify parent component about the file change
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (!file) return;
-
-    const formData = new FormData();
-    formData.append('file', file);
-
-    // Use fetch or axios to send the file to the backend
-    fetch('/upload', {
-      method: 'POST',
-      body: formData,
-    })
-    .then((response) => response.json())
-    .then((data) => console.log(data))
-    .catch((error) => console.error(error));
+  const handleIconClick = () => {
+    fileInputRef.current.click(); // Trigger file input when icon is clicked
   };
 
   return (
-    <div>
-      <h2>Upload File</h2>
-      <form onSubmit={handleSubmit}>
-        <input type="file" onChange={handleFileChange} />
-        <button type="submit">Upload</button>
-      </form>
+    <div className="icon-container">
+      <button className="icon-button" onClick={handleIconClick}>
+        <img src={require('../graphics/uploadFile Icon.png')} alt="Upload File" className="icon" />
+      </button>
+      <input
+        type="file"
+        ref={fileInputRef}
+        style={{ display: 'none' }} // Hide the actual file input
+        onChange={handleFileChange}
+      />
+      {file && <p>{file.name}</p>}
     </div>
   );
 };
