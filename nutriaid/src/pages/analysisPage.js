@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from 'react';  // Only import React once
 import { useWallet } from '@solana/wallet-adapter-react';
 import Navbar from './navbar'; 
 import snapPhotoIcon from '../graphics/SnapPhoto Icon.png'; 
@@ -16,7 +16,6 @@ function AnalysisPage() {
 
   const handleFileChange = (file) => {
     console.log("File uploaded:", file);
-    // Additional logic for handling file upload can be added here
   };
 
   return (
@@ -24,7 +23,6 @@ function AnalysisPage() {
       <Navbar />
       
       <div className="analysis-container">
-        {/* Left Section with Snap Photo, Attach File and Analyze Button */}
         <div className="left-section">
           <div className="input-container">
             <h3>SNAP A PHOTO:</h3>
@@ -39,7 +37,6 @@ function AnalysisPage() {
           <button className="analyze-button">ANALYZE</button>
         </div>
 
-        {/* Right Section with Analysis Results */}
         <div className="right-section">
           <div className="output-box consumption-recommendation">
             <h3>CONSUMPTION RECOMMENDATION:</h3>

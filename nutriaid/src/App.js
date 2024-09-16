@@ -7,7 +7,7 @@ import { WalletModalProvider } from '@solana/wallet-adapter-react-ui';
 import { clusterApiUrl } from '@solana/web3.js';
 import Homepage from './pages/homepage';
 import AnalysisPage from './pages/analysisPage';
-import WalletSelectionPage from './pages/walletSelectionPage';
+// import ErrorBoundary from './ErrorBoundary'; // Comment this out if it's missing
 
 function App() {
   const network = WalletAdapterNetwork.Devnet;
@@ -19,13 +19,12 @@ function App() {
       <WalletProvider wallets={wallets} autoConnect>
         <WalletModalProvider>
           <div className="App">
-            <Router>
-              <Routes>
-                <Route path="/" element={<Homepage />} />
-                <Route path="/analysis" element={<AnalysisPage />} />
-                <Route path="/wallet-selection" element={<WalletSelectionPage />} />
-              </Routes>
-            </Router>
+          <Router basename="/NutriAID">
+            <Routes>
+              <Route path="/" element={<Homepage />} />
+              <Route path="/analysis" element={<AnalysisPage />} />
+            </Routes>
+          </Router>
           </div>
         </WalletModalProvider>
       </WalletProvider>
