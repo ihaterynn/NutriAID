@@ -1,0 +1,16 @@
+/* src/components/connectWallet.css */
+.wallet-button-container .connect-wallet {
+    background: linear-gradient(90deg, #00a651 0%, #8dc63f 100%);
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+    font-family: 'Press Start 2P', cursive; /* Apply custom font */
+}
+
+.wallet-button-container .connect-wallet:hover {
+    opacity: 0.8;
+}

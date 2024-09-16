@@ -1,0 +1,62 @@
+/* Import the Press Start 2P font */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+/* Navbar styles */
+.navbar {
+    display: flex;
+    justify-content: center; /* Centers the nav-links */
+    align-items: center;
+    padding: 40px 30px;
+    background-color: #040d26; /* Dark color for navbar */
+    color: #fff;
+    font-family: 'Press Start 2P', cursive;
+    position: relative; /* For absolute positioning of logo and connect-wallet */
+}
+
+.logo {
+    position: absolute;
+    left: 150px; /* Position logo 150px from the left */
+}
+
+.navbar-logo {
+    width: 250px;
+    height: auto;
+    display: block;
+    vertical-align: middle;
+}
+
+.nav-links {
+    display: flex;
+    gap: 35px;
+}
+
+.nav-link {
+    color: #fff;
+    text-decoration: none;
+    font-size: 17px;
+    transition: opacity 0.3s ease;
+}
+
+.nav-link:hover {
+    opacity: 0.8;
+}
+
+/* Custom styles for Connect Wallet button */
+.connect-wallet {
+    position: absolute;
+    right: 150px; /* Mirrors the logo position on the right */
+    top: 50%; /* Position the button vertically at 50% of the navbar */
+    transform: translateY(-50%); /* Offset it by 50% of its own height to vertically center */
+    background: linear-gradient(90deg, #00a651 0%, #8dc63f 100%);
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+
+.connect-wallet:hover {
+    opacity: 0.8;
+}
