@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/NutriAID/static/css/main.2a73f141.css",
-    "main.js": "/NutriAID/static/js/main.179700f4.js",
+    "main.css": "/NutriAID/static/css/main.527eb07e.css",
+    "main.js": "/NutriAID/static/js/main.7a519f40.js",
     "static/js/648.ceb3a109.chunk.js": "/NutriAID/static/js/648.ceb3a109.chunk.js",
     "static/js/227.a7e7c834.chunk.js": "/NutriAID/static/js/227.a7e7c834.chunk.js",
     "static/js/453.d34bc818.chunk.js": "/NutriAID/static/js/453.d34bc818.chunk.js",
     "static/media/Logo.png": "/NutriAID/static/media/Logo.505948b469dbf624f753.png",
     "index.html": "/NutriAID/index.html",
-    "main.2a73f141.css.map": "/NutriAID/static/css/main.2a73f141.css.map",
-    "main.179700f4.js.map": "/NutriAID/static/js/main.179700f4.js.map",
+    "main.527eb07e.css.map": "/NutriAID/static/css/main.527eb07e.css.map",
+    "main.7a519f40.js.map": "/NutriAID/static/js/main.7a519f40.js.map",
     "648.ceb3a109.chunk.js.map": "/NutriAID/static/js/648.ceb3a109.chunk.js.map",
     "227.a7e7c834.chunk.js.map": "/NutriAID/static/js/227.a7e7c834.chunk.js.map",
     "453.d34bc818.chunk.js.map": "/NutriAID/static/js/453.d34bc818.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.2a73f141.css",
-    "static/js/main.179700f4.js"
+    "static/css/main.527eb07e.css",
+    "static/js/main.7a519f40.js"
   ]
 }
