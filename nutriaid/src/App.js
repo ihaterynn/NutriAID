@@ -3,10 +3,11 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ConnectionProvider, WalletProvider } from '@solana/wallet-adapter-react';
 import { WalletAdapterNetwork } from '@solana/wallet-adapter-base';
 import { SolflareWalletAdapter } from '@solana/wallet-adapter-solflare';
-import { WalletModalProvider, WalletMultiButton } from '@solana/wallet-adapter-react-ui';
+import { WalletModalProvider } from '@solana/wallet-adapter-react-ui';
 import { clusterApiUrl } from '@solana/web3.js';
 import Homepage from './pages/homepage';
 import AnalysisPage from './pages/analysisPage';
+import WalletSelectionPage from './pages/walletSelectionPage';
 
 function App() {
   const network = WalletAdapterNetwork.Devnet;
@@ -18,11 +19,11 @@ function App() {
       <WalletProvider wallets={wallets} autoConnect>
         <WalletModalProvider>
           <div className="App">
-            <WalletMultiButton />
-            <Router basename="/NutriAID">
+            <Router>
               <Routes>
                 <Route path="/" element={<Homepage />} />
                 <Route path="/analysis" element={<AnalysisPage />} />
+                <Route path="/wallet-selection" element={<WalletSelectionPage />} />
               </Routes>
             </Router>
           </div>

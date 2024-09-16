@@ -1,21 +1,20 @@
-/* Import the Press Start 2P font */
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
 /* Navbar styles */
 .navbar {
     display: flex;
-    justify-content: center; /* Centers the nav-links */
+    justify-content: center;
     align-items: center;
     padding: 40px 30px;
-    background-color: #040d26; /* Dark color for navbar */
+    background-color: #040d26; 
     color: #fff;
     font-family: 'Press Start 2P', cursive;
-    position: relative; /* For absolute positioning of logo and connect-wallet */
+    position: relative; 
 }
 
 .logo {
     position: absolute;
-    left: 150px; /* Position logo 150px from the left */
+    left: 150px; 
 }
 
 .navbar-logo {
@@ -44,9 +43,9 @@
 /* Custom styles for Connect Wallet button */
 .connect-wallet {
     position: absolute;
-    right: 150px; /* Mirrors the logo position on the right */
-    top: 50%; /* Position the button vertically at 50% of the navbar */
-    transform: translateY(-50%); /* Offset it by 50% of its own height to vertically center */
+    right: 150px; 
+    top: 50%; 
+    transform: translateY(-50%); 
     background: linear-gradient(90deg, #00a651 0%, #8dc63f 100%);
     color: #fff;
     border: none;

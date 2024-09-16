@@ -1,7 +1,6 @@
-// src/components/connectWallet.js
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom'; // For redirecting to the wallet selection page
-import '../components/connectWallet.css'; // Custom CSS for the button
+import { useNavigate } from 'react-router-dom'; 
+import '../components/connectWallet.css'; 
 
 function ConnectWallet() {
     const [walletAddress, setWalletAddress] = useState(null);
@@ -16,7 +15,7 @@ function ConnectWallet() {
     }, []);
 
     const handleWalletSelection = () => {
-        navigate('/wallet-selection'); // Navigate to the wallet selection page
+        navigate('/wallet-selection'); 
     };
 
     return (

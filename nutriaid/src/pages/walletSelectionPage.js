@@ -1,6 +1,6 @@
 // src/pages/WalletSelectionPage.js
 import React from 'react';
-import './walletSelectionPage.css'; // Ensure you create this CSS file
+import './walletSelectionPage.css'; 
 
 function WalletSelectionPage() {
     const handlePhantomConnect = async () => {
@@ -28,7 +28,7 @@ function WalletSelectionPage() {
                 <img src="/path/to/phantom-logo.png" alt="Phantom Wallet" />
                 <span>Phantom</span>
             </div>
-            {/* Add other wallets here if needed */}
+            {/* Add other wallets here */}
         </div>
     );
 }

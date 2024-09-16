@@ -1,0 +1,55 @@
+/* General styles */
+body {
+    font-family: 'Press Start 2P', cursive; /* For the pixel-style text */
+    background-color: #ffffff;
+  }
+  
+  .homepage {
+    text-align: center;
+  }
+  
+  /* Hero section */
+  .hero-section {
+    background-color: #cef8d5; /* Pastel green background */
+    padding: 150px;
+    margin-top: 20px;
+    margin-bottom: 40px;
+  }
+  
+  .hero-section h1, .hero-section h2 {
+    margin: 10px 0;
+  }
+  
+  .food-icons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  
+  .food-icon {
+    width: 50px;
+    height: 50px;
+  }
+  
+  /* Start Analysis Button */
+  .start-analysis {
+    margin: 20px 0;
+  }
+  
+  .start-button {
+    font-family: 'Press Start 2P', cursive; /* Apply custom font */
+    background: linear-gradient(90deg, #13bb65 0%, #a1dd4f 100%);
+    color: #000000;
+    padding: 24px 30px;
+    border: none;
+    border-radius: 40px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+  }
+  
+  .start-button:hover {
+    opacity: 0.8;
+  }
+  
