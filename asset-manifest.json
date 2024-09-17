@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/NutriAID/static/css/main.7d8e3cb0.css",
+    "main.css": "/NutriAID/static/css/main.82ab58f0.css",
     "main.js": "/NutriAID/static/js/main.5f630ab0.js",
     "static/js/453.85595a0e.chunk.js": "/NutriAID/static/js/453.85595a0e.chunk.js",
     "static/media/Exodus Icon.png": "/NutriAID/static/media/Exodus Icon.830fd3811b8a5d021191.png",
@@ -8,12 +8,12 @@
     "static/media/MetaMask Logo.png": "/NutriAID/static/media/MetaMask Logo.db2f2e4fd617d27905a9.png",
     "static/media/Phantom-Icon_Transparent.png": "/NutriAID/static/media/Phantom-Icon_Transparent.ae18699e021eeaab5951.png",
     "index.html": "/NutriAID/index.html",
-    "main.7d8e3cb0.css.map": "/NutriAID/static/css/main.7d8e3cb0.css.map",
+    "main.82ab58f0.css.map": "/NutriAID/static/css/main.82ab58f0.css.map",
     "main.5f630ab0.js.map": "/NutriAID/static/js/main.5f630ab0.js.map",
     "453.85595a0e.chunk.js.map": "/NutriAID/static/js/453.85595a0e.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.7d8e3cb0.css",
+    "static/css/main.82ab58f0.css",
     "static/js/main.5f630ab0.js"
   ]
 }
