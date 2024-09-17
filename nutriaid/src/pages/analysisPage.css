@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
-
 .analysis-page {
     background-color: #000000; 
     color: #ffffff;
@@ -26,7 +25,7 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
-    width: 25%;
+    align-items: center; /* Centers children horizontally */
     margin-left: 40px;
 }
 
@@ -89,9 +88,10 @@
     text-align: center;
     transition: opacity 0.3s ease, background 0.3s ease;
     font-family: 'Press Start 2P', cursive;
-    width: 100%;
-
+    width: 60%; /* Full width of container */
+    max-width: 300px; 
     margin-bottom: 30px; 
+    margin-top: 20px; 
 }
 
 .analyze-button:hover {
@@ -107,7 +107,6 @@
     background: #888888;
     color: #ffffff;
 }
-
 
 .right-section {
     width: 65%; 
@@ -187,7 +186,6 @@ h3 {
     padding-right: 10px; 
 }
 
-
 .scrollable-content::-webkit-scrollbar {
     width: 8px;
 }
@@ -204,7 +202,6 @@ h3 {
 .scrollable-content::-webkit-scrollbar-thumb:hover {
     background: #555;
 }
-
 
 .awaiting-input {
     opacity: 0.5;
