@@ -7,13 +7,16 @@ import UploadComponent from '../components/uploadComponent';
 import { extractText } from '../utils/imageProcessing';
 import { analyzeIngredients, checkCalories } from '../utils/textAnalysis';
 import './analysisPage.css';
+import { SystemProgram, LAMPORTS_PER_SOL, Connection, clusterApiUrl, Transaction } from '@solana/web3.js';
+
+const ANALYSIS_FEE = 0.1 * LAMPORTS_PER_SOL; // 0.1 SOL fee for analysis
 
 function AnalysisPage() {
   const [analysisResult, setAnalysisResult] = useState(null);
   const [selectedFile, setSelectedFile] = useState(null);
   const [isAnalyzing, setIsAnalyzing] = useState(false);
   const [userPreferences, setUserPreferences] = useState(null);
-  const { connected } = useWallet();
+  const { publicKey, sendTransaction, connected } = useWallet();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -26,12 +29,22 @@ function AnalysisPage() {
     }
   }, [navigate]);
 
+  useEffect(() => {
+    console.log("Wallet connected state:", connected);
+  }, [connected]);
+
   const handleFileChange = (file) => {
     setSelectedFile(file);
     console.log("File uploaded:", file);
   };
 
   const handleAnalyze = async () => {
+    console.log("Analyze button clicked. Wallet connected:", connected);
+    if (!connected) {
+      alert("Please connect your wallet before analyzing.");
+      return;
+    }
+
     if (!userPreferences) {
       alert("Please complete your dietary profile before analyzing.");
       navigate('/profile');
@@ -43,9 +56,32 @@ function AnalysisPage() {
       return;
     }
 
+    // Confirm the transaction with the user
+    const confirmed = window.confirm(`This analysis will cost ${ANALYSIS_FEE / LAMPORTS_PER_SOL} SOL. Do you want to proceed?`);
+    if (!confirmed) {
+      return;
+    }
+
     setIsAnalyzing(true);
 
     try {
+      // Solana transaction logic
+      const connection = new Connection(clusterApiUrl('devnet'));
+      
+      const recipientPublicKey = "59YtDKG5tKoUayr8vEtTzw47Et7CQAHbXKUKPCWkobar"; 
+
+      const transaction = new Transaction().add(
+        SystemProgram.transfer({
+          fromPubkey: publicKey,
+          toPubkey: recipientPublicKey,
+          lamports: ANALYSIS_FEE,
+        })
+      );
+
+      const signature = await sendTransaction(transaction, connection);
+      await connection.confirmTransaction(signature, 'processed');
+      console.log("Transaction successful, signature:", signature);
+
       const analysisStartTime = Date.now();
 
       const extractedText = await extractText(selectedFile);
@@ -76,7 +112,7 @@ function AnalysisPage() {
       let recommendation = analysis.result === "Yes" ? "Safe to consume" : "Not recommended";
       let reason = analysis.mainReason || calorieWarning || '';
       if (recommendation === "Not recommended" && reason) {
-        reason = `because it is ${reason}`;
+        reason = `because it ${reason}`;
       }
 
       const newAnalysisResult = {
@@ -93,8 +129,8 @@ function AnalysisPage() {
 
       setAnalysisResult(newAnalysisResult);
     } catch (error) {
-      console.error("Error during analysis:", error);
-      alert("An error occurred during analysis. Please try again.");
+      console.error("Error during analysis or transaction:", error);
+      alert("An error occurred during analysis or Solana transaction. Please try again.");
     } finally {
       setIsAnalyzing(false);
     }
