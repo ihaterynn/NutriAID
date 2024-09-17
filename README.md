@@ -27,9 +27,8 @@ Visit GitHub Pages: [https://ihaterynn.github.io/NutriAID](https://ihaterynn.git
 
 <br> 
 
-## Quick Start⚡ 
+## Quick Start 🖥️ 
 
-### For Windows Users 🖥️ 
 
 1. Open the project in Visual Studio Code:
 
@@ -47,15 +46,6 @@ Visit GitHub Pages: [https://ihaterynn.github.io/NutriAID](https://ihaterynn.git
 
 3. Open your web browser and go to [http://localhost:3000](http://localhost:3000) to use the application.
 
-<br> 
-
-### For Linux/macOS Users 💻 
-
-1. Clone the repository:
-
-2. Run the following commands:
-
-3. Open your web browser and go to [http://localhost:3000](http://localhost:3000) to use the application.
 
 <br> 
 
