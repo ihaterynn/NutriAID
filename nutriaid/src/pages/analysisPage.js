@@ -76,7 +76,7 @@ function AnalysisPage() {
       let recommendation = analysis.result === "Yes" ? "Safe to consume" : "Not recommended";
       let reason = analysis.mainReason || calorieWarning || '';
       if (recommendation === "Not recommended" && reason) {
-        reason = `because it is ${reason}`;
+        reason = `because it ${reason}`;
       }
 
       const newAnalysisResult = {
