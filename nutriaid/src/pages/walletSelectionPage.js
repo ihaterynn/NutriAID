@@ -1,8 +1,10 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';  // Import useNavigate for redirection
+import { useNavigate } from 'react-router-dom';  
 import phantomIcon from '../graphics/Phantom-Icon_Transparent.png';
-import metamaskIcon from '../graphics/MetaMask Logo.png';  // Import the MetaMask logo
-import './walletSelectionPage.css'; // Style reference
+import metamaskIcon from '../graphics/MetaMask Logo.png'; 
+import exodusIcon from '../graphics/Exodus Icon.png';  // Add Exodus icon import
+import okxIcon from '../graphics/OKX Icon.jpeg';  // Add OKX icon import
+import './walletSelectionPage.css'; 
 
 function WalletSelectionPage() {
     const navigate = useNavigate();  // Initialize useNavigate for programmatic navigation
@@ -14,6 +16,12 @@ function WalletSelectionPage() {
                 break;
             case 'metamask':
                 connectMetaMask();
+                break;
+            case 'exodus':
+                connectExodusWallet();
+                break;
+            case 'okx':
+                connectOKXWallet();
                 break;
             default:
                 break;
@@ -41,13 +49,29 @@ function WalletSelectionPage() {
                 const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
                 console.log('Connected to MetaMask:', accounts[0]);
                 localStorage.setItem('walletAddress', accounts[0]);
-                navigate('/');  // Redirect to homepage after connection
+                navigate('/');  
             } catch (error) {
                 console.error('Failed to connect to MetaMask:', error);
             }
         } else {
             alert('MetaMask not found. Please install it from https://metamask.io/');
         }
+    };
+
+    const connectExodusWallet = async () => {
+        // Placeholder function, integrate Exodus wallet connection here
+        console.log('Connecting to Exodus wallet...');
+        // Placeholder Logic for Exodus wallet connection
+
+        // navigate('/');  // Redirect to homepage after connection
+    };
+
+    const connectOKXWallet = async () => {
+        // Placeholder function, integrate OKX wallet connection here
+        console.log('Connecting to OKX wallet...');
+        // Placeholder Logic for OKX wallet connection
+
+        // navigate('/');  // Redirect to homepage after connection
     };
 
     return (
@@ -63,6 +87,14 @@ function WalletSelectionPage() {
                     <div className="wallet-option" onClick={() => handleWalletConnect('metamask')}>
                         <img src={metamaskIcon} alt="MetaMask" />
                         <span>MetaMask</span>
+                    </div>
+                    <div className="wallet-option" onClick={() => handleWalletConnect('exodus')}>
+                        <img src={exodusIcon} alt="Exodus" />
+                        <span>Exodus</span>
+                    </div>
+                    <div className="wallet-option" onClick={() => handleWalletConnect('okx')}>
+                        <img src={okxIcon} alt="OKX Wallet" />
+                        <span>OKX Wallet</span>
                     </div>
                 </div>
             </div>
