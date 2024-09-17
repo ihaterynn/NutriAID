@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom'; // Using NavLink for active state
+import { NavLink } from 'react-router-dom'; // Updated to use NavLink for active states
 import ConnectWallet from '../components/connectWallet';
 import './navbar.css';
 import Logo from '../graphics/Logo.png';
