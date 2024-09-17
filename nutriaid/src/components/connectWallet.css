@@ -13,3 +13,19 @@
 .wallet-button-container .connect-wallet:hover {
     opacity: 0.8;
 }
+
+.wallet-button-wrapper {
+    background: linear-gradient(90deg, #00a651 0%, #8dc63f 100%);
+    border-radius: 25px;
+    padding: 2px;
+    display: inline-block;
+}
+
+.wallet-button-wrapper button {
+    font-family: 'Press Start 2P', cursive !important;
+    font-size: 14px !important;
+    padding: 10px 20px !important;
+    background: transparent !important;
+    border: none !important;
+    color: #fff !important;
+}

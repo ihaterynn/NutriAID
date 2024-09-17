@@ -1,11 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
-
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 30px 50px;
+    padding: 20px 50px; /* Reduced padding */
     background-color: #040d26;
     color: #fff;
     font-family: 'Press Start 2P', cursive;
@@ -19,20 +18,20 @@
 
 .logo {
     flex: 1;
-    display: left;
+    display: flex;
     align-items: center;
-    left: 150px;
+    justify-content: flex-start;
 }
 
 .navbar-logo {
-    width: 200px;
+    width: 130px; /* Slightly reduced size */
     height: auto;
+    margin-left: 10px;
 }
-
 
 .nav-links {
     display: flex;
-    gap: 50px;
+    gap: 20px; /* Further reduced gap */
     flex: 2;
     justify-content: center;
 }
@@ -40,46 +39,40 @@
 .nav-link {
     color: #fff;
     text-decoration: none;
-    font-size: 18px;
-    padding: 10px 15px;
+    font-size: 14px;
+    padding: 8px 12px;
     border-radius: 5px;
     transition: all 0.3s ease;
     background-color: transparent;
 }
 
-.nav-link:hover, .nav-link:focus {
-    background-color: #8dc63f;
-    color: #000;
+.nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.1);
 }
 
 .nav-link.active {
-    background-color: #00a651;
-    color: #fff;
+    background-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
 }
 
-/* Connect Wallet button container */
 .connect-wallet {
     flex: 1;
-    display: right;
+    display: flex;
     justify-content: flex-end;
 }
 
-.connect-wallet button {
-    background: linear-gradient(90deg, #00a651 0%, #8dc63f 100%);
-    color: #fff;
-    border: none;
-    padding: 12px 25px;
-    font-size: 14px;
-    border-radius: 25px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    white-space: nowrap;
+/* Remove or adjust this body padding */
+body {
+    padding-top: 40px; /* Reduced padding */
+    margin: 0; /* Remove default margin */
+    background-color: #000; /* Set background to black */
 }
 
-.connect-wallet button:hover {
-    opacity: 0.8;
-}
-
-.connect-wallet button:active {
-    background: #00a651;
+/* Add this to your global CSS or App.css */
+.page-content {
+    padding-top: 10px; /* Reduced padding */
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-left: 20px;
+    padding-right: 20px;
 }

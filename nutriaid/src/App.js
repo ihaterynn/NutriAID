@@ -9,11 +9,12 @@ import Homepage from './pages/homepage';
 import AnalysisPage from './pages/analysisPage';
 import ProfilePage from './pages/profilePage';
 import WalletSelectionPage from './pages/walletSelectionPage';
+import '@solana/wallet-adapter-react-ui/styles.css'; // Import styles here
 
 function App() {
   const network = WalletAdapterNetwork.Devnet;
   const endpoint = useMemo(() => clusterApiUrl(network), [network]);
-  const wallets = useMemo(() => [new PhantomWalletAdapter()], []); // Only include Phantom
+  const wallets = useMemo(() => [new PhantomWalletAdapter()], []);
 
   return (
     <ConnectionProvider endpoint={endpoint}>

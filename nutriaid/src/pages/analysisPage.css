@@ -5,7 +5,7 @@
     color: #ffffff;
     font-family: 'Press Start 2P', cursive;
     min-height: 100vh;
-    padding: 80px 20px 40px; 
+    padding: 20px 20px 40px; 
     margin: 0;
     margin-top: 18px;
 }
@@ -106,6 +106,7 @@
 .analyze-button.analyzing {
     background: #888888;
     color: #ffffff;
+    width: 80%;
 }
 
 .right-section {

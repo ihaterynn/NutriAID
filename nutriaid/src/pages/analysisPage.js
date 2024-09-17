@@ -7,18 +7,27 @@ import UploadComponent from '../components/uploadComponent';
 import { extractText } from '../utils/imageProcessing';
 import { analyzeIngredients, checkCalories } from '../utils/textAnalysis';
 import './analysisPage.css';
-import { SystemProgram, LAMPORTS_PER_SOL, Connection, clusterApiUrl, Transaction } from '@solana/web3.js';
+import {
+  SystemProgram,
+  LAMPORTS_PER_SOL,
+  Connection,
+  clusterApiUrl,
+  Transaction,
+  PublicKey,
+} from '@solana/web3.js';
 
-const ANALYSIS_FEE = 0.1 * LAMPORTS_PER_SOL; // 0.1 SOL fee for analysis
+const ANALYSIS_FEE = 0.01 * LAMPORTS_PER_SOL;
 
 function AnalysisPage() {
   const [analysisResult, setAnalysisResult] = useState(null);
   const [selectedFile, setSelectedFile] = useState(null);
   const [isAnalyzing, setIsAnalyzing] = useState(false);
   const [userPreferences, setUserPreferences] = useState(null);
+  const [estimatedFee, setEstimatedFee] = useState(0);
   const { publicKey, sendTransaction, connected } = useWallet();
   const navigate = useNavigate();
 
+  // Load user preferences from localStorage
   useEffect(() => {
     const storedPreferences = localStorage.getItem('dietaryProfile');
     if (storedPreferences) {
@@ -29,13 +38,19 @@ function AnalysisPage() {
     }
   }, [navigate]);
 
-  useEffect(() => {
-    console.log("Wallet connected state:", connected);
-  }, [connected]);
-
   const handleFileChange = (file) => {
     setSelectedFile(file);
     console.log("File uploaded:", file);
+  };
+
+  const connectRecipientPublicKey = (address) => {
+    try {
+      return new PublicKey(address);
+    } catch (error) {
+      console.error("Invalid recipient public key:", error);
+      alert("Invalid recipient address. Please contact support.");
+      return null;
+    }
   };
 
   const handleAnalyze = async () => {
@@ -56,20 +71,23 @@ function AnalysisPage() {
       return;
     }
 
-    // Confirm the transaction with the user
-    const confirmed = window.confirm(`This analysis will cost ${ANALYSIS_FEE / LAMPORTS_PER_SOL} SOL. Do you want to proceed?`);
-    if (!confirmed) {
-      return;
-    }
-
-    setIsAnalyzing(true);
-
+    // Proceed with fee estimation and transaction only after user clicks "Analyze"
     try {
-      // Solana transaction logic
-      const connection = new Connection(clusterApiUrl('devnet'));
+      const connection = new Connection(clusterApiUrl('devnet'), 'confirmed');
       
-      const recipientPublicKey = "59YtDKG5tKoUayr8vEtTzw47Et7CQAHbXKUKPCWkobar"; 
+      // Define recipient public key (use environment variable)
+      const RECIPIENT_PUBLIC_KEY = process.env.REACT_APP_RECIPIENT_PUBLIC_KEY;
+      if (!RECIPIENT_PUBLIC_KEY) {
+        alert("Recipient public key is not set. Please contact support.");
+        return;
+      }
+      const recipientPublicKey = connectRecipientPublicKey(RECIPIENT_PUBLIC_KEY);
+      if (!recipientPublicKey) return;
 
+      // Get the latest blockhash
+      const { blockhash, lastValidBlockHeight } = await connection.getLatestBlockhash('finalized');
+
+      // Create a transaction
       const transaction = new Transaction().add(
         SystemProgram.transfer({
           fromPubkey: publicKey,
@@ -78,10 +96,58 @@ function AnalysisPage() {
         })
       );
 
+      // Set the recent blockhash and fee payer
+      transaction.recentBlockhash = blockhash;
+      transaction.feePayer = publicKey;
+
+      // Estimate the transaction fee
+      const estimatedTransactionFee = await connection.getFeeForMessage(
+        transaction.compileMessage(),
+        'confirmed'
+      );
+
+      if (!estimatedTransactionFee || estimatedTransactionFee.value === undefined) {
+        throw new Error('Failed to estimate transaction fee');
+      }
+
+      console.log(`Estimated Transaction Fee: ${estimatedTransactionFee.value / LAMPORTS_PER_SOL} SOL`);
+
+      // Check if user has sufficient funds
+      const userBalance = await connection.getBalance(publicKey);
+      if (userBalance < ANALYSIS_FEE + estimatedTransactionFee.value) {
+        alert("Insufficient funds to cover the analysis fee and transaction fee.");
+        return;
+      }
+
+      // Confirm the transaction with the user
+      const confirmed = window.confirm(
+        `This analysis will cost ${(ANALYSIS_FEE / LAMPORTS_PER_SOL).toFixed(2)} SOL plus an estimated transaction fee of ${(estimatedTransactionFee.value / LAMPORTS_PER_SOL).toFixed(4)} SOL. Do you want to proceed?`
+      );
+      if (!confirmed) {
+        return;
+      }
+
+      setIsAnalyzing(true);
+
+      // Send the transaction
       const signature = await sendTransaction(transaction, connection);
-      await connection.confirmTransaction(signature, 'processed');
+
+      console.log("Transaction sent, signature:", signature);
+
+      // Confirm the transaction
+      const confirmation = await connection.confirmTransaction({
+        blockhash,
+        lastValidBlockHeight,
+        signature
+      }, 'confirmed');
+
+      if (confirmation.value.err) {
+        throw new Error(`Transaction failed: ${confirmation.value.err.toString()}`);
+      }
+
       console.log("Transaction successful, signature:", signature);
 
+      // Proceed with your analysis logic
       const analysisStartTime = Date.now();
 
       const extractedText = await extractText(selectedFile);
@@ -129,8 +195,8 @@ function AnalysisPage() {
 
       setAnalysisResult(newAnalysisResult);
     } catch (error) {
-      console.error("Error during analysis or transaction:", error);
-      alert("An error occurred during analysis or Solana transaction. Please try again.");
+      console.error("Detailed error:", error);
+      alert(`An error occurred: ${error.message}. Check console for details.`);
     } finally {
       setIsAnalyzing(false);
     }
@@ -139,7 +205,7 @@ function AnalysisPage() {
   return (
     <div className="analysis-page">
       <Navbar />
-      
+
       {userPreferences ? (
         <div className="analysis-container">
           <div className="left-section">
