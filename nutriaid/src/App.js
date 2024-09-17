@@ -8,7 +8,7 @@ import { clusterApiUrl } from '@solana/web3.js';
 import Homepage from './pages/homepage';
 import AnalysisPage from './pages/analysisPage';
 import ProfilePage from './pages/profilePage';
-import WalletSelectionPage from './pages/walletSelectionPage'; // Proper import
+import WalletSelectionPage from './pages/walletSelectionPage';
 
 function App() {
   const network = WalletAdapterNetwork.Devnet;

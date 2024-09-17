@@ -1,6 +1,6 @@
-/* General styles */
+
 body {
-    font-family: 'Press Start 2P', cursive; /* For the pixel-style text */
+    font-family: 'Press Start 2P', cursive; 
     background-color: #ffffff;
   }
   
@@ -8,11 +8,11 @@ body {
     text-align: center;
   }
   
-  /* Hero section */
+ 
   .hero-section {
-    background-color: #cef8d5; /* Pastel green background */
+    background-color: #cef8d5; 
     padding: 150px;
-    margin-top: 20px;
+    margin-top: 100px;
     margin-bottom: 40px;
   }
   
@@ -32,13 +32,13 @@ body {
     height: 50px;
   }
   
-  /* Start Analysis Button */
+  
   .start-analysis {
     margin: 20px 0;
   }
   
   .start-button {
-    font-family: 'Press Start 2P', cursive; /* Apply custom font */
+    font-family: 'Press Start 2P', cursive;
     background: linear-gradient(90deg, #13bb65 0%, #a1dd4f 100%);
     color: #000000;
     padding: 24px 30px;

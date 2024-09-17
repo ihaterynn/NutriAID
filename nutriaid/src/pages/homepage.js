@@ -1,14 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Navbar from './navbar'; // Import the Navbar component
-import './homepage.css'; // Specific styles for Homepage
+import Navbar from './navbar'; 
+import './homepage.css'; 
 
 function Homepage() {
   console.log("Homepage Component Rendering");
 
   return (
     <div className="homepage">
-      {/* Navbar */}
       <Navbar />
 
       {/* Hero Section */}

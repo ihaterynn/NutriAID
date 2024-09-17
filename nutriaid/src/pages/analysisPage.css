@@ -1,11 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
+
 .analysis-page {
     background-color: #000000; 
     color: #ffffff;
     font-family: 'Press Start 2P', cursive;
     min-height: 100vh;
-    padding: 80px 20px 40px; /* Adjust the overall page padding */
+    padding: 80px 20px 40px; 
     margin: 0;
     margin-top: 18px;
 }
@@ -29,7 +30,6 @@
     margin-left: 40px;
 }
 
-/* Centering the input containers */
 .input-container {
     background-color: #000000; 
     padding: 20px;
@@ -41,21 +41,21 @@
     justify-content: center; 
     border: 5px solid;
     border-image: linear-gradient(to bottom, #94b9ff, #cdffd8) 1;
-    height: 350px; /* Reduced height */
-    margin-bottom: 20px; /* Reduced margin */
+    height: 350px; 
+    margin-bottom: 20px; 
 }
 
 .input-option {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-bottom: 30px; /* Reduced margin */
+    margin-bottom: 30px; 
 }
 
 .icon {
     width: 80px;
     height: 80px;
-    margin-bottom: 15px; /* Reduced margin */
+    margin-bottom: 15px; 
     display: block;
     background-color: transparent;
     border: none;
@@ -91,7 +91,7 @@
     font-family: 'Press Start 2P', cursive;
     width: 100%;
 
-    margin-bottom: 30px; /* Match the bottom margin of output boxes */
+    margin-bottom: 30px; 
 }
 
 .analyze-button:hover {
@@ -108,44 +108,44 @@
     color: #ffffff;
 }
 
-/* Right section styling */
+
 .right-section {
-    width: 65%; /* Slightly reduced width */
+    width: 65%; 
     display: flex;
     flex-direction: column;
     gap: 15px;
-    margin-right: 20px; /* Add right margin */
-    padding-bottom: 55px; /* Adjust this value to match the height of your analyze button */
+    margin-right: 20px;
+    padding-bottom: 55px; 
 }
 
 /* Output Boxes */
 .output-box {
     background-color: #000000;
-    border: 4px solid; /* Thicker border */
+    border: 4px solid; 
     padding: 15px;
-    border-radius: 20px; /* Rounder corners */
+    border-radius: 20px; 
     height: 100px;
     box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.1);
     overflow: hidden;
     font-size: 14px;
     display: flex;
     flex-direction: column;
-    margin-bottom: 30px; /* Increased bottom margin */
+    margin-bottom: 30px; 
 }
 
 .output-box h3 {
     font-size: 16px;
     margin-bottom: 10px;
     color: #ffffff;
-    text-align: left; /* Align left */
-    padding-left: 10px; /* Add some padding */
+    text-align: left; 
+    padding-left: 10px; 
 }
 
 .output-box p, .output-box .scrollable-content {
     font-size: 14px;
     letter-spacing: 0.5px;
     line-height: 1.4;
-    padding-left: 10px; /* Add some padding */
+    padding-left: 10px;
 }
 
 .consumption-recommendation {
@@ -184,10 +184,10 @@ h3 {
 .scrollable-content {
     overflow-y: auto;
     flex-grow: 1;
-    padding-right: 10px; /* Add some padding for the scrollbar */
+    padding-right: 10px; 
 }
 
-/* Styling for scrollbar */
+
 .scrollable-content::-webkit-scrollbar {
     width: 8px;
 }
@@ -205,7 +205,7 @@ h3 {
     background: #555;
 }
 
-/* Add this new style for the awaiting input text */
+
 .awaiting-input {
-    opacity: 0.5; /* Adjust this value to make it more or less transparent */
+    opacity: 0.5;
 }

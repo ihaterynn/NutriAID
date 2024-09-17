@@ -2,8 +2,8 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';  
 import phantomIcon from '../graphics/Phantom-Icon_Transparent.png';
 import metamaskIcon from '../graphics/MetaMask Logo.png'; 
-import exodusIcon from '../graphics/Exodus Icon.png';  // Add Exodus icon import
-import okxIcon from '../graphics/OKX Icon.jpeg';  // Add OKX icon import
+import exodusIcon from '../graphics/Exodus Icon.png';  
+import okxIcon from '../graphics/OKX Icon.jpeg';  
 import './walletSelectionPage.css'; 
 
 function WalletSelectionPage() {
