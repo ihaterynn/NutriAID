@@ -5,7 +5,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 50px;
+    padding: 30px 50px;
     background-color: #040d26;
     color: #fff;
     font-family: 'Press Start 2P', cursive;
@@ -19,8 +19,9 @@
 
 .logo {
     flex: 1;
-    display: flex;
+    display: left;
     align-items: center;
+    left: 150px;
 }
 
 .navbar-logo {
@@ -28,7 +29,7 @@
     height: auto;
 }
 
-/* Nav links styling */
+
 .nav-links {
     display: flex;
     gap: 50px;
@@ -59,7 +60,7 @@
 /* Connect Wallet button container */
 .connect-wallet {
     flex: 1;
-    display: flex;
+    display: right;
     justify-content: flex-end;
 }
 

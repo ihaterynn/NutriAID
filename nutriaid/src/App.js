@@ -25,7 +25,7 @@ function App() {
                 <Route path="/" element={<Homepage />} />
                 <Route path="/analysis" element={<AnalysisPage />} />
                 <Route path="/profile" element={<ProfilePage />} />
-                <Route path="/wallet-selection" element={<WalletSelectionPage />} /> {/* Fixed casing */}
+                <Route path="/wallet-selection" element={<WalletSelectionPage />} /> 
               </Routes>
             </Router>
           </div>
