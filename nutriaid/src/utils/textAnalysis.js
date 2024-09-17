@@ -1,46 +1,41 @@
 import harmfulIngredients from '../data/harmful_ingredients.json';
 
-export const analyzeIngredients = (text, healthConditions) => {
-  const warnings = [];
-  const potentialHarmWarnings = [];
+export const analyzeIngredients = (text, healthConditions, weightGoal) => {
+  // Split the text by commas and new lines, then trim and filter out empty strings
+  const ingredients = text.split(/[,\n]/)
+                          .map(i => i.trim())
+                          .filter(i => i)
+                          .map(i => i.split(' ').slice(0, 3).join(' ')); // Take only first 3 words max
+  
+  let potentialHarmWarnings = [];
+  let conditionWarnings = [];
+  let mainReason = '';
 
-  healthConditions.forEach(condition => {
-    const harmfulForCondition = harmfulIngredients.filter(item => item.harmful_for === condition);
-    harmfulForCondition.forEach(item => {
-      if (text.toLowerCase().includes(item.ingredient.toLowerCase())) {
-        warnings.push(item.ingredient);
+  ingredients.forEach(ingredient => {
+    const harmful = harmfulIngredients.find(h => 
+      ingredient.toLowerCase().includes(h.ingredient.toLowerCase()) && 
+      (h.harmful_for === 'all' || healthConditions.includes(h.harmful_for))
+    );
+
+    if (harmful) {
+      potentialHarmWarnings.push(ingredient);
+      if (harmful.harmful_for !== 'all' && !mainReason) {
+        mainReason = `not suitable for people with ${harmful.harmful_for}`;
       }
-    });
-  });
-
-  const sodiumMatch = text.match(/sodium\s*(\d+)\s*mg/i);
-  const cholesterolMatch = text.match(/cholesterol\s*(\d+)\s*mg/i);
-
-  if (sodiumMatch && parseInt(sodiumMatch[1]) > 800) {
-    warnings.push('sodium');
-  }
-
-  if (cholesterolMatch && parseInt(cholesterolMatch[1]) > 80) {
-    warnings.push('cholesterol');
-  }
-
-  if (warnings.includes('sodium') || warnings.includes('cholesterol')) {
-    if (text.toLowerCase().includes('fat') || text.toLowerCase().includes('fats')) {
-      warnings.push('fats');
-    }
-  }
-
-  const generalHarmful = harmfulIngredients.filter(item => item.harmful_for === 'all');
-  generalHarmful.forEach(item => {
-    if (text.toLowerCase().includes(item.ingredient.toLowerCase())) {
-      potentialHarmWarnings.push(item.ingredient);
     }
   });
+
+  if (!mainReason && potentialHarmWarnings.length > 0) {
+    mainReason = 'contains potentially harmful ingredients';
+  }
+
+  const result = potentialHarmWarnings.length === 0 ? "Yes" : "No";
 
   return {
-    result: warnings.length > 0 || potentialHarmWarnings.length > 0 ? "No" : "Yes",
-    conditionWarnings: [...new Set(warnings)],
-    potentialHarmWarnings: [...new Set(potentialHarmWarnings)]
+    result,
+    potentialHarmWarnings,
+    conditionWarnings,
+    mainReason
   };
 };
 
@@ -49,9 +44,9 @@ export const checkCalories = (text, weightGoal) => {
   if (calorieMatch) {
     const calories = parseInt(calorieMatch[1], 10);
     if (calories > 200 && (weightGoal === 'maintain' || weightGoal === 'lose')) {
-      return 'High Calorie';
+      return 'exceeds recommended calorie levels';
     } else if (calories <= 200 && weightGoal === 'gain') {
-      return 'Low Calorie';
+      return 'below recommended calorie levels';
     }
   }
   return null;

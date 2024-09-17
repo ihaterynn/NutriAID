@@ -25,7 +25,6 @@ const UploadComponent = ({ onFileChange }) => {
         style={{ display: 'none' }} // Hide the actual file input
         onChange={handleFileChange}
       />
-      {file && <p>{file.name}</p>}
     </div>
   );
 };

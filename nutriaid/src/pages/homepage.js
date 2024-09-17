@@ -23,7 +23,7 @@ function Homepage() {
       </div>
 
       <div className="start-analysis">
-        <Link to="/analysis">
+        <Link to="/profile">
           <button className="start-button">START ANALYSIS</button>
         </Link>
       </div>

@@ -3,59 +3,82 @@
 /* Navbar styles */
 .navbar {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    padding: 35px 30px;
-    background-color: #040d26; 
+    padding: 20px 50px;
+    background-color: #040d26;
     color: #fff;
     font-family: 'Press Start 2P', cursive;
-    position: relative; 
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-sizing: border-box;
 }
 
 .logo {
-    position: absolute;
-    left: 150px; 
+    flex: 1;
+    display: flex;
+    align-items: center;
 }
 
 .navbar-logo {
-    width: 250px;
+    width: 200px;
     height: auto;
-    display: block;
-    vertical-align: middle;
 }
 
+/* Nav links styling */
 .nav-links {
     display: flex;
-    gap: 35px;
+    gap: 50px;
+    flex: 2;
+    justify-content: center;
 }
 
 .nav-link {
     color: #fff;
     text-decoration: none;
-    font-size: 17px;
-    transition: opacity 0.3s ease;
+    font-size: 18px;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    background-color: transparent;
 }
 
-.nav-link:hover {
-    opacity: 0.8;
+.nav-link:hover, .nav-link:focus {
+    background-color: #8dc63f;
+    color: #000;
 }
 
-/* Custom styles for Connect Wallet button */
+.nav-link.active {
+    background-color: #00a651;
+    color: #fff;
+}
+
+/* Connect Wallet button container */
 .connect-wallet {
-    position: absolute;
-    right: 150px; 
-    top: 50%; 
-    transform: translateY(-50%); 
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.connect-wallet button {
     background: linear-gradient(90deg, #00a651 0%, #8dc63f 100%);
     color: #fff;
     border: none;
-    padding: 10px 20px;
-    font-size: 16px;
+    padding: 12px 25px;
+    font-size: 14px;
     border-radius: 25px;
     cursor: pointer;
-    transition: opacity 0.3s ease;
+    transition: all 0.3s ease;
+    white-space: nowrap;
 }
 
-.connect-wallet:hover {
+.connect-wallet button:hover {
     opacity: 0.8;
+}
+
+.connect-wallet button:active {
+    background: #00a651;
 }
