@@ -9,7 +9,7 @@ import Homepage from './pages/homepage';
 import AnalysisPage from './pages/analysisPage';
 import ProfilePage from './pages/profilePage';
 import WalletSelectionPage from './pages/walletSelectionPage';
-import '@solana/wallet-adapter-react-ui/styles.css'; // Import styles here
+import '@solana/wallet-adapter-react-ui/styles.css'; 
 
 function App() {
   const network = WalletAdapterNetwork.Devnet;

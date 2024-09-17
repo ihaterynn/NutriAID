@@ -95,7 +95,8 @@
 }
 
 .analyze-button:hover {
-    opacity: 0.8;
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(193, 255, 114, 0.5); 
 }
 
 .analyze-button:disabled {
@@ -118,7 +119,7 @@
     padding-bottom: 55px; 
 }
 
-/* Output Boxes */
+
 .output-box {
     background-color: #000000;
     border: 4px solid; 
@@ -149,15 +150,15 @@
 }
 
 .consumption-recommendation {
-    border-image: linear-gradient(to right, #00ff00, #00aa00) 1;
+    border-image: linear-gradient(to right, #00ff00, #7de2ac, #f4d05b) 1;
 }
 
 .concerns {
-    border-image: linear-gradient(to right, #00aaff, #0066cc) 1;
+    border-image: linear-gradient(to right, #20e2d7, #f9fea5) 1;
 }
 
 .harmful-ingredients {
-    border-image: linear-gradient(to right, #ff00ff, #cc00cc) 1;
+    border-image: linear-gradient(to right, #d686db, #8ee8c6) 1;
 }
 
 h3 {

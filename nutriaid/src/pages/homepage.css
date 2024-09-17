@@ -1,43 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
 body {
-    font-family: 'Press Start 2P', cursive; 
-    background-color: #ffffff;
-  }
-  
-  .homepage {
+    font-family: 'Orbitron', sans-serif;
+    color: rgb(0, 0, 0);
+    background-color: black;
+}
+
+.homepage {
     text-align: center;
-  }
-  
- 
-  .hero-section {
-    background-color: #cef8d5; 
-    padding: 150px;
-    margin-top: 100px;
-    margin-bottom: 40px;
-  }
-  
-  .hero-section h1, .hero-section h2 {
+}
+
+.hero-section {
+    background-color: #cef8d5;
+    padding: 70px;
+    margin-top: 70px;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+}
+
+.hero-content {
+  text-align: left;
+  flex: 1;
+  margin-left: 80px;
+  padding-right: 50px; 
+}
+
+.hero-content h1 {
+  font-size: 2.4em; 
+  white-space: nowrap; 
+  overflow: hidden; 
+  text-overflow: ellipsis; 
+}
+
+.hero-content h2 {
+  font-size: 1.8em; 
+}
+
+.hero-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 45px;
+}
+
+.bunny-image {
+    max-width: 500px;
+    height: 300px;
+    animation: updown 5s ease-in-out infinite;
+}
+
+@keyframes updown {
+    0%, 100% {
+        transform: translateY(20px);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+.hero-section h1, .hero-section h2 {
     margin: 10px 0;
-  }
-  
-  .food-icons {
+}
+
+.food-icons {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     gap: 10px;
-  }
-  
-  .food-icon {
+}
+
+.food-icon {
     width: 50px;
     height: 50px;
-  }
-  
-  
-  .start-analysis {
+}
+
+.start-analysis {
     margin: 20px 0;
-  }
-  
-  .start-button {
+}
+
+.start-button {
     font-family: 'Press Start 2P', cursive;
     background: linear-gradient(90deg, #13bb65 0%, #a1dd4f 100%);
     color: #000000;
@@ -47,9 +93,48 @@ body {
     font-size: 15px;
     cursor: pointer;
     transition: opacity 0.3s ease;
-  }
-  
-  .start-button:hover {
+}
+
+.start-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(193, 255, 114, 0.5); 
+}
+
+.animated-gradient-border {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    z-index: 0;
+    background: linear-gradient(45deg, #30dc3e, #71e0e0, #f275c8, #8f70ed);
+    background-size: 400% 400%;
+    animation: gradientAnimation 10s ease infinite;
     opacity: 0.8;
-  }
-  
+}
+
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.hero-section-wrapper {
+    position: relative;
+    padding: 1px;
+    margin-bottom: 30px;
+}
+
+.hero-section-wrapper .hero-section {
+    z-index: 1;
+}
+
+.hero-section-wrapper .animated-gradient-border {
+    z-index: -1;
+}

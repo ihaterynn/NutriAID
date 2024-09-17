@@ -4,7 +4,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 50px; /* Reduced padding */
+    padding: 20px 50px; 
     background-color: #040d26;
     color: #fff;
     font-family: 'Press Start 2P', cursive;
@@ -24,14 +24,14 @@
 }
 
 .navbar-logo {
-    width: 130px; /* Slightly reduced size */
+    width: 220px; 
     height: auto;
     margin-left: 10px;
 }
 
 .nav-links {
     display: flex;
-    gap: 20px; /* Further reduced gap */
+    gap: 20px; 
     flex: 2;
     justify-content: center;
 }
@@ -47,11 +47,11 @@
 }
 
 .nav-link:hover {
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: rgba(255, 255, 255, 0.204);
 }
 
 .nav-link.active {
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: rgba(77, 222, 193, 0.79);
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
 }
 
@@ -61,16 +61,16 @@
     justify-content: flex-end;
 }
 
-/* Remove or adjust this body padding */
+
 body {
-    padding-top: 40px; /* Reduced padding */
-    margin: 0; /* Remove default margin */
-    background-color: #000; /* Set background to black */
+    padding-top: 40px; 
+    margin: 0; 
+    background-color: #000; 
 }
 
-/* Add this to your global CSS or App.css */
+
 .page-content {
-    padding-top: 10px; /* Reduced padding */
+    padding-top: 10px; 
     max-width: 1200px;
     margin: 0 auto;
     padding-left: 20px;
