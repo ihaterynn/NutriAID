@@ -6,6 +6,8 @@ NutriAID is a React application that helps users make informed dietary choices b
 
 ## Deployment 🚀
 
+### Using GitHub Pages
+
 To deploy the frontend to GitHub Pages, run the following command:
 
   ```
@@ -16,6 +18,30 @@ To deploy the frontend to GitHub Pages, run the following command:
   ```
 
 Visit GitHub Pages: [https://ihaterynn.github.io/NutriAID](https://ihaterynn.github.io/NutriAID)
+
+### Using Vite
+
+To deploy the frontend using Vite, follow these steps:
+
+1. Install Vite if you haven't already:
+
+   ```
+   npm install -g vite
+   ```
+
+2. Build the project using Vite:
+
+   ```
+   npm run build
+   ```
+
+3. Preview the build locally:
+
+   ```
+   npm run preview
+   ```
+
+4. Deploy the build to your preferred hosting service.
 
 <br> 
 
@@ -28,7 +54,6 @@ Visit GitHub Pages: [https://ihaterynn.github.io/NutriAID](https://ihaterynn.git
 <br> 
 
 ## Quick Start 🖥️ 
-
 
 1. Open the project in Visual Studio Code:
 
@@ -46,7 +71,6 @@ Visit GitHub Pages: [https://ihaterynn.github.io/NutriAID](https://ihaterynn.git
 
 3. Open your web browser and go to [http://localhost:3000](http://localhost:3000) to use the application.
 
-
 <br> 
 
 ## Troubleshooting 🛠️ 
@@ -61,4 +85,3 @@ If you encounter any issues:
 ## Contributing 🤝 
 
 Contributions are welcome! Feel free to submit a Pull Request.
-
