@@ -1,4 +1,5 @@
 import React, { useState, useRef } from 'react';
+import uploadFileIcon from '../graphics/uploadFile Icon.png'; // Import the image
 
 const UploadComponent = ({ onFileChange }) => {
   const [file, setFile] = useState(null);
@@ -17,7 +18,7 @@ const UploadComponent = ({ onFileChange }) => {
   return (
     <div className="icon-container">
       <button className="icon-button" onClick={handleIconClick}>
-        <img src={require('../graphics/uploadFile Icon.png')} alt="Upload File" className="icon" />
+        <img src={uploadFileIcon} alt="Upload File" className="icon" /> {/* Use the imported image */}
       </button>
       <input
         type="file"

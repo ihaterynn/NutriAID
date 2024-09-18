@@ -9,7 +9,7 @@ import Homepage from './pages/homepage';
 import AnalysisPage from './pages/analysisPage';
 import ProfilePage from './pages/profilePage';
 import WalletSelectionPage from './pages/walletSelectionPage';
-import '@solana/wallet-adapter-react-ui/styles.css'; 
+import '@solana/wallet-adapter-react-ui/styles.css';
 
 function App() {
   const network = WalletAdapterNetwork.Devnet;
@@ -20,16 +20,14 @@ function App() {
     <ConnectionProvider endpoint={endpoint}>
       <WalletProvider wallets={wallets} autoConnect>
         <WalletModalProvider>
-          <div className="App">
-            <Router basename="/NutriAID">
-              <Routes>
-                <Route path="/" element={<Homepage />} />
-                <Route path="/analysis" element={<AnalysisPage />} />
-                <Route path="/profile" element={<ProfilePage />} />
-                <Route path="/wallet-selection" element={<WalletSelectionPage />} />
-              </Routes>
-            </Router>
-          </div>
+          <Router>
+            <Routes>
+              <Route path="/" element={<Homepage />} />
+              <Route path="/analysis" element={<AnalysisPage />} />
+              <Route path="/profile" element={<ProfilePage />} />
+              <Route path="/wallet-selection" element={<WalletSelectionPage />} />
+            </Routes>
+          </Router>
         </WalletModalProvider>
       </WalletProvider>
     </ConnectionProvider>

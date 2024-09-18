@@ -76,7 +76,7 @@ function AnalysisPage() {
       const connection = new Connection(clusterApiUrl('devnet'), 'confirmed');
       
       // Define recipient public key (use environment variable)
-      const RECIPIENT_PUBLIC_KEY = process.env.REACT_APP_RECIPIENT_PUBLIC_KEY;
+      const RECIPIENT_PUBLIC_KEY = import.meta.env.VITE_RECIPIENT_PUBLIC_KEY;
       if (!RECIPIENT_PUBLIC_KEY) {
         alert("Recipient public key is not set. Please contact support.");
         return;
