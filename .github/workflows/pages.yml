@@ -39,12 +39,12 @@ jobs:
 
       - name: Install dependencies
         run: |
-          cd nutriaid  # Navigate to the nutriaid directory
+          cd nutriaid  
           npm ci
 
       - name: Build
         run: |
-          cd nutriaid  # Navigate again to the directory
+          cd nutriaid 
           npm run build
 
       - name: Setup Pages
