@@ -38,14 +38,12 @@ jobs:
           cache: 'npm'
       
       - name: Install dependencies
-        run: |
-          cd nutriaid 
-          npm ci
+        working-directory: ./nutriaid  # Set the working directory to nutriaid
+        run: npm ci  # Now it will run from the correct folder
 
       - name: Build
-        run: |
-          cd nutriaid 
-          npm run build
+        working-directory: ./nutriaid  # Build from the nutriaid directory
+        run: npm run build
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
