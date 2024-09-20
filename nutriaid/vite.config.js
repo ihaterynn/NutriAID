@@ -4,7 +4,6 @@ import { VitePWA } from 'vite-plugin-pwa';
 
 export default defineConfig(({ command }) => {
   return {
-    base: "/NutriAID",
     plugins: [
       react(),
       VitePWA({
