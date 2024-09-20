@@ -8,7 +8,7 @@ function Navbar() {
     return (
         <nav className="navbar">
             <div className="logo">
-                <img src={Logo} alt="NutriAID Logo" className="navbar-logo" />
+                <img fetchpriority="high" src={Logo} alt="NutriAID Logo" className="navbar-logo" />
             </div>
             <div className="nav-links">
                 <NavLink exact to="/" className="nav-link" activeClassName="active">
