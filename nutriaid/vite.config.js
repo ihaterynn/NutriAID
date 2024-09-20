@@ -1,9 +1,19 @@
+// vite.config.js
+
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import { VitePWA } from 'vite-plugin-pwa';
 
-export default defineConfig(({ command }) => {
+// Replace 'NutriAID' with your actual repository name if different
+const repoName = 'NutriAID';
+
+export default defineConfig(({ command, mode }) => {
+  const isProduction = mode === 'production';
+
   return {
+    // Set base path conditionally
+    base: isProduction ? `/${repoName}/` : '/',
+
     plugins: [
       react(),
       VitePWA({
