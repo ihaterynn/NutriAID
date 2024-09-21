@@ -28,7 +28,7 @@
   },
   "scripts": {
     "start": "vite",
-    "serve": "set PORT=4433 && serve dist",
+    "serve": "vite preview --port 4433",
     "build": "vite build",
     "preview": "vite preview",
     "predeploy": "npm run build",
