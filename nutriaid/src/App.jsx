@@ -16,11 +16,13 @@ function App() {
   const endpoint = useMemo(() => clusterApiUrl(network), [network]);
   const wallets = useMemo(() => [new PhantomWalletAdapter()], []);
 
+  const basename = import.meta.env.MODE === 'production' ? '/NutriAID' : '/';
+
   return (
     <ConnectionProvider endpoint={endpoint}>
       <WalletProvider wallets={wallets} autoConnect>
         <WalletModalProvider>
-          <Router>
+          <Router basename={basename}>
             <Routes>
               <Route path="/" element={<Homepage />} />
               <Route path="/analysis" element={<AnalysisPage />} />
