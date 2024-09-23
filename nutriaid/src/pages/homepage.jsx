@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import Navbar from './navbar'; 
 import './homepage.css'; 
 import bunnyImage from '../graphics/homepage bunnis.png';
+import { useMediaQuery } from 'react-responsive';
 
 function Homepage() {
   const freaksRef = useRef(null);
@@ -52,6 +53,11 @@ function Homepage() {
     return cleanup;
   }, []);
 
+  // Define breakpoints for responsive behavior
+  const isMobile = useMediaQuery({ query: '(max-width: 480px)' });
+  const isTablet = useMediaQuery({ query: '(min-width: 768px) and (max-width: 1024px)' });
+  const isDesktop = useMediaQuery({ query: '(min-width: 1025px)' });
+
   return (
     <div className="homepage">
       <Navbar />
@@ -62,11 +68,16 @@ function Homepage() {
             <h1>Made for you Health <span ref={freaksRef}></span></h1>
             <h2>EZ Food Label Analysis</h2>
           </div>
+          
+          {/* Responsive image handling */}
           <div className="hero-image">
-            <img src={bunnyImage} alt="Bunny" className="bunny-image" />
+            {isMobile && <img src={bunnyImage} alt="Bunny" className="bunny-image-mobile" />}
+            {isTablet && <img src={bunnyImage} alt="Bunny" className="bunny-image-tablet" />}
+            {isDesktop && <img src={bunnyImage} alt="Bunny" className="bunny-image-desktop" />}
           </div>
         </div>
       </div>
+
       <div className="start-analysis">
         <Link to="/profile">
           <button className="start-button">START ANALYSIS</button>

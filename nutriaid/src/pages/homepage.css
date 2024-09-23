@@ -20,24 +20,25 @@ body {
     z-index: 1;
     display: flex;
     align-items: center;
+    flex-direction: row;
 }
 
 .hero-content {
-  text-align: left;
-  flex: 1;
-  margin-left: 80px;
-  padding-right: 50px; 
+    text-align: left;
+    flex: 1;
+    margin-left: 80px;
+    padding-right: 50px; 
 }
 
 .hero-content h1 {
-  font-size: 2.4em; 
-  white-space: nowrap; 
-  overflow: hidden; 
-  text-overflow: ellipsis; 
+    font-size: 2.4em; 
+    white-space: nowrap; 
+    overflow: hidden; 
+    text-overflow: ellipsis; 
 }
 
 .hero-content h2 {
-  font-size: 1.8em; 
+    font-size: 1.8em; 
 }
 
 .hero-image {
@@ -137,4 +138,65 @@ body {
 
 .hero-section-wrapper .animated-gradient-border {
     z-index: -1;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .hero-section {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .hero-content {
+        margin-left: 0;
+        padding-right: 0; 
+        text-align: center;
+    }
+
+    .hero-image {
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+
+    .hero-content h1 {
+        font-size: 2em;
+    }
+
+    .hero-content h2 {
+        font-size: 1.5em;
+    }
+
+    .bunny-image {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .start-button {
+        padding: 20px 25px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-content h1 {
+        font-size: 1.5em;
+    }
+
+    .hero-content h2 {
+        font-size: 1.2em;
+    }
+
+    .start-button {
+        padding: 15px 20px;
+        font-size: 12px;
+    }
+
+    .food-icon {
+        width: 40px;
+        height: 40px;
+    }
+
+
+
+    
 }
