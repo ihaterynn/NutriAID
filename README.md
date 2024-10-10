@@ -11,7 +11,7 @@ Try it out here: [NutriAID Website](https://ihaterynn.github.io/NutriAID)
 
 Easily input all your health information, including allergies, chronic conditions, and weight goals. NutriAID will tailor your dietary recommendations to match your unique profile, ensuring that your food choices are safe and aligned with your health objectives.
 
-![Nutriaid_Personalized_Tracking](https://github.com/user-attachments/assets/7b4cdfc4-7521-4089-9a2f-346bd3d8ad7b)
+![Nutriaid Personalized Profile](https://github.com/user-attachments/assets/da422fed-4ccf-46bc-9e46-dc8ffb907b30)
 
 ### AI Food Recommendation
 
