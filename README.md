@@ -1,8 +1,24 @@
 # NutriAID 🍏
 
 NutriAID is a React application that helps users make informed dietary choices by analyzing food labels using Optical Character Recognition (OCR).
+Try it out here: [NutriAID Website](https://ihaterynn.github.io/NutriAID)
 
-<br> 
+![NutriAID_Home](https://github.com/user-attachments/assets/1f87c8b0-7df9-43a3-b81a-c8ef29dcbf04)
+
+## Features
+
+### Personalized Health Condition Tracking
+
+Easily input all your health information, including allergies, chronic conditions, and weight goals. NutriAID will tailor your dietary recommendations to match your unique profile, ensuring that your food choices are safe and aligned with your health objectives.
+
+![Nutriaid_Personalized_Tracking](https://github.com/user-attachments/assets/7b4cdfc4-7521-4089-9a2f-346bd3d8ad7b)
+
+### AI Food Recommendation
+
+Our AI analyzes food labels and provides real-time recommendations on whether the food is suitable for your dietary needs. Once you initiate a transaction using your crypto wallet, NutriAID will assist you in making informed choices, ensuring that the food you consume aligns with your health and nutrition goals.
+
+![Nutriaid_Food_Recommendation](https://github.com/user-attachments/assets/fb5d6faf-0f3d-4a8f-a0b4-4e6fd20700b6)
+
 
 ## Deployment 🚀
 
@@ -16,8 +32,6 @@ To deploy the frontend to GitHub Pages, run the following command:
   ```
   npm run deploy
   ```
-
-Visit GitHub Pages: [https://ihaterynn.github.io/NutriAID](https://ihaterynn.github.io/NutriAID)
 
 ### Using Vite
 
